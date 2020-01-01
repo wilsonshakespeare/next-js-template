@@ -1,0 +1,51 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["core/*"],
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@definitions/*": ["definitions/*"],
+      "@pages/*": ["pages/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "lib": ["dom", "es2017"],
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": ".next",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictFunctionTypes": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "core/**/*",
+    "server/**/*",
+    "components/**/*",
+    "config/**/*",
+    "constants/**/*",
+    "definitions/**/*",
+    "pages/**/*",
+    "store/**/*",
+    "utils/**/*",
+    "__test__/**/*"
+  ],
+  "exclude": ["node_modules", ".gitlab", ".next", ".vscode", "dist"],
+  "typeRoots": ["./node_modules/@types"]
+}

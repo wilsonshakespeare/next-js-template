@@ -1,0 +1,135 @@
+@mixin outer-container($local-max-width: $max-width) {
+  @include clearfix;
+
+  max-width: $local-max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+.wrap-container {
+  background-size: cover;
+}
+.container {
+  @include outer-container;
+}
+
+.full-width-container {
+  width: 100%;
+}
+
+.row {
+  width: auto;
+  position: relative;
+  &.narrow {
+    max-width: 992px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.side-paddings {
+    padding-left: $grid-padding / 2;
+    padding-right: $grid-padding / 2;
+  }
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.col {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: $grid-padding;
+  padding-right: $grid-padding;
+  position: relative;
+  & .row {
+    margin-left: -$grid-padding;
+    margin-right: -$grid-padding;
+  }
+}
+
+// Display classes
+.hide-for-small {
+  @include respond-to($small-only) {
+    display: none !important;
+  }
+}
+
+.hide-for-medium {
+  @include respond-to($medium-only) {
+    display: none !important;
+  }
+}
+
+.hide-for-medium-up {
+  @include respond-to($medium-up) {
+    display: none !important;
+  }
+}
+
+.hide-for-large {
+  @include respond-to($large-up) {
+    display: none !important;
+  }
+}
+
+.visible-md {
+  display: none;
+
+  @include respond-to($medium-up) {
+    display: block !important;
+  }
+}
+
+.visible-lg {
+  display: none;
+
+  @include respond-to($large-up) {
+    display: block !important;
+  }
+}
+
+// Small up
+@for $i from 1 through 12 {
+  .s#{$i} {
+    width: ($i / 12) * 100%;
+  }
+}
+
+// Medium up
+@include respond-to($medium-up) {
+  @for $i from 1 through 12 {
+    .m#{$i} {
+      width: ($i / 12) * 100%;
+    }
+  }
+}
+
+// Large up
+@include respond-to($large-up) {
+  @for $i from 1 through 12 {
+    .l#{$i} {
+      width: ($i / 12) * 100%;
+    }
+  }
+}
+
+// Source ordering
+@include respond-to($medium-up) {
+  .pull-right {
+    float: right;
+  }
+  .pull-left {
+    float: left;
+  }
+}
+
+@include respond-to($small-only) {
+  .hidden-xs {
+    display: none;
+  }
+}

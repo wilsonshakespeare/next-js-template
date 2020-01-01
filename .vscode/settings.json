@@ -1,0 +1,10 @@
+{
+  "tslint.configFile": "./tslint.json",
+  "importBeautify.semicolon": true,
+  "importBeautify.maxLineLength": 80,
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "prettier.singleQuote": true
+}
