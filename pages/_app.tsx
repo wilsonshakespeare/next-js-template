@@ -1,4 +1,4 @@
-// import '../styles/style.scss';
+import '../styles/main.scss';
 
 import withRedux from 'next-redux-wrapper';
 import React from 'react';

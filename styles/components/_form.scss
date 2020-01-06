@@ -1,0 +1,168 @@
+/// <reference path="../app.scss" />
+//form fields settings
+$border-color: $blue-grey-100;
+$border-style: solid;
+$default-border-settings: $border-color $border-style $border-width;
+
+$form-field_bg: lighten($black, 98%);
+$form-field_brd: darken($border-color, 10%) solid 1px;
+$form-field_padding: 10px 15px;
+$form-min_height: 39px;
+$form-label-color: lighten($black, 40%);
+$form-pre-pend-color:  lighten($black, 85%);
+
+/*************************
+** RESETS form fields
+*************************/
+//all avalilable input types
+
+//color,date, datetime, datetime-local, email, month, number, range, search, tel, time, url, week,
+select,
+input,
+textarea {
+  border: $form-field_brd;
+  padding: $form-field_padding;
+  min-height: $form-min_height;
+  background: $form-field_bg;
+  width: 100%;
+  font-size: 90%;
+  &.inline-field {
+    padding: 0.357rem 0.5rem;
+    width: auto;
+    min-height: auto;
+  }
+
+  font-family: $base-family;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  @include respond-to($medium-up) {
+    font-size: 100%;
+  }
+}
+
+input[type='checkbox'] {
+  font-family: $base-family;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+input[type='radio'] {
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+}
+
+//form fields container
+.form-field {
+  position: relative;
+  label {
+    text-transform: capitalize;
+    color: $form-label-color;
+    letter-spacing: 1px;
+    font-weight: $bold;
+    display: block;
+    sub {
+      font-weight: $regular;
+    }
+  }
+  &__has-value {
+    font-size: 0.85rem;
+    top: 0%;
+  }
+
+  input,
+  select,
+  textarea {
+    margin: 0.5rem 0 0.5rem;
+    width: 100%;
+    border-radius: 3px;
+    min-height: $form-min_height - 10px;
+    position: relative;
+    z-index: 12;
+    color: $form-label-color;
+
+    &[type='email'] {
+      text-transform: lowercase !important;
+    }
+    &:focus + label, {
+      @extend .form-field__has-value;
+    }
+    // &:focus, &:active {
+    //   border-bottom-color: $primary-2-color;
+    //   border-bottom-width: 2px;
+    // }
+  }
+  &__info {
+    position: absolute;
+    right: 0;
+    bottom: -9px;
+  }
+
+  @include respond-to($medium-up) {
+    label {
+      margin-bottom: 5px;
+    }
+    input,
+    select,
+    textarea {
+      margin: rem(5px) 0 1rem;
+      &:focus + label {
+        font-size: 0.85rem;
+        // color: $primary-1-color;
+      }
+    }
+  }
+}
+
+.filter input[type="radio"] {
+  // height: 16px;
+  // width: 16px;
+  margin: 0;
+  margin-right: $base-margin;
+  vertical-align: middle;
+
+  &::before,
+  &::after {
+    // height: 16px;
+    // width: 16px;
+    box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 0 0 rgba(255, 255, 255, 0.8);
+    background: $base-system-lighter-grey;
+    border: none;
+  }
+  &:checked {
+    &::after {
+      content: "\2713";
+      width: 15px;
+      height: 15px;
+      background: $base-system-dark-grey;
+      color: $success-color;
+      top: 0;
+      left: 0;
+      padding-left: 3px;
+      font-size: 10px;
+      font-weight: 900;
+    }
+  }
+}
+
+.form {
+  &__default {
+    &__row {
+      display: flex;
+    }
+  }
+}

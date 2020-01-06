@@ -1,0 +1,14 @@
+$primary-color: #429faa;
+$sec-color: #b62234;
+//links
+$link-color: $sec-color;
+$link-hover-color: darken($sec-color, 10%);
+//buttons
+$primary-btn-bg: $primary-color;
+$primary-btn-hover: darken($primary-color, 10%);
+$primary-btn-text-color: white;
+$sec-btn-bg: $sec-color;
+$sec-btn-hover: darken($sec-color, 10%);
+$sec-btn-text-color: white;
+
+.link-color { color: $link-color; }

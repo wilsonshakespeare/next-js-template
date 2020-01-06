@@ -12,10 +12,10 @@ function HomeView({ containerValues }: ViewProps) {
   };
   return (
     <BaseView {...baseProps}>
-      <p>{`
+      <div className="container">{`
         Proving Page Container Hooks Concept
         Work: Company Name is ${config.branding.companyName}
-      `}</p>
+      `}</div>
     </BaseView>
   );
 }

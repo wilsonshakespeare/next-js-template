@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  a {
+    color: $link-color;
+    transition: 0.2s all ease-in;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      transition: 0.2s all ease-out;
+      outline: 0;
+      color: $link-color-hover;
+    }
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    li {
+      list-style: none;
+    }
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $text-primary;
+    margin: 0;
+    padding: 0;
+    display: block;
+    .sub {
+      font-size: 70%;
+      display: block;
+      font-weight: $weight-regular;
+    }
+  }
+  
+  input {
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  b,
+  strong {
+    font-weight: bold;
+  }
+  
+  img {
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .no-brd {
+    &-left {
+      border-left: 0 !important;
+    }
+    &-right {
+      border-right: 0 !important;
+    }
+    &-top {
+      border-top: 0 !important;
+    }
+    &-bottom {
+      border-bottom: 0 !important;
+    }
+  }
+  .npd {
+    padding: 0 !important;
+    &t {
+      padding-top: 0 !important;
+    }
+    &b {
+      padding-bottom: 0 !important;
+    }
+    &l {
+      padding-left: 0 !important;
+    }
+    &r {
+      padding-right: 0 !important;
+    }
+  }
+  
+  .nmg {
+    margin: 0 !important;
+    &t {
+      margin-top: 0 !important;
+    }
+    &b {
+      margin-bottom: 0 !important;
+    }
+    &l {
+      margin-left: 0 !important;
+    }
+    &r {
+      margin-right: 0 !important;
+    }
+  }
+  
+  @include respond-to($small-only) {
+    .npd {
+      &t {
+        padding-top: 15px !important;
+      }
+      &b {
+        padding-bottom: 15px !important;
+      }
+      &l {
+        padding-left: 15px !important;
+      }
+      &r {
+        padding-right: 15px !important;
+      }
+    }
+  }
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+  
+  small,
+  .small {
+    font-size: 60%;
+  }
+  
+  .big {
+    font-size: 128.5%;
+  }
+  
+  .text {
+    &-light {
+      font-weight: $weight-light;
+    }
+    &-regular {
+      font-weight: $weight-regular;
+    }
+    &-bold {
+      font-weight: $weight-bold;
+    }
+    &-heavy {
+      font-weight: 800;
+    }
+    &-ellipsis-overflow {
+      text-overflow: ellipsis;
+    }
+    &-center {
+      text-align: center;
+    }
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
+    &-lowercase {
+      text-transform: lowercase;
+    }
+    &-uppercase {
+      text-transform: uppercase;
+    }
+    &-capitalize {
+      text-transform: capitalize;
+    }
+    &-overflow {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  
+  // Helper classes
+  .hidden {
+    display: none;
+  }
+  
+  .clearfix {
+    @include clearfix;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .float-left {
+    float: left;
+  }
+  
+  .float-right {
+    float: right;
+  }
+  
+  .clear-left {
+    clear: left;
+  }
+  
+  .clear-right {
+    clear: right;
+  }
+  
+  .clear-both {
+    clear: both;
+  }
+  
+  .full-width {
+    @include full-width;
+  }
+  
+  .block {
+    display: block;
+  }
+  
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+  
+  .slide-down {
+    animation-name: slide-down;
+    -webkit-animation-name: slide-down;
+  }
+  
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-20%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  
+  @-webkit-keyframes slide-down {
+    0% {
+      -webkit-transform: translateY(-20%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
+  
+  .page-change > span {
+    visibility: hidden;
+  }
+  
+  .infinite-spin {
+    padding-left: 4px;
+  }
+  
+  .infinite-spin svg {
+    animation: rotation 1s infinite linear;
+    vertical-align: middle;
+  }
+  
+  i.infinite-spin.page-change-loader {
+    padding-left: 0;
+    position: absolute;
+    left: 45%;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  

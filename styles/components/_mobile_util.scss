@@ -1,0 +1,136 @@
+$shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+$small-fontsize: 10px;
+$base-system-lighter-grey: $blue-grey-50;
+$base-system-dark-grey: $blue-grey-900;
+.mob-dialog-menu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: $base-zaxis;
+  left: 0;
+  top: 0;
+  &.set-seperate {
+    max-height: 42px;
+  }
+  .icon {
+    margin: 0;
+    &.left-icon {
+      margin-right: 5px;
+    }
+    &.right-icon {
+      margin-left: 5px;
+    }
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+//mobile menu space to leave space between the title and content
+.mob-dialog-top-space {
+  padding-top: 49px;
+
+  @include respond-to($large-up) {
+    padding-top: 0;
+  }
+}
+.mob-dialog-bottom-space {
+  padding-bottom: 52px;
+
+  @include respond-to($large-up) {
+    padding-bottom: 0;
+  }
+}
+.mob-dialog-title {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: $bold;
+  background: $gq-green;
+  color: $white;
+  z-index: $base-zaxis + 1;
+  display: flex;
+  justify-content: space-between;
+  .back-button {
+    line-height: 27px;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+.mob-dialog-footer {
+  background: $white;
+  box-shadow: rgba($black, 0.3) 0 0 5px;
+  bottom: 0;
+  font-size: 16px;
+  max-height: 53px;
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+  z-index: $base-zaxis + 1;
+  .button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+.show-on-desktop {
+  display: none !important;
+
+  @include respond-to($large-up) {
+    display: inline-block !important;
+  }
+}
+.show-on-small {
+  display: block !important;
+
+  @include respond-to($large-up) {
+    display: none !important;
+  }
+}
+
+.mob-sticky-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  background: $gq-green;
+  box-shadow: $shadow;
+  bottom: 0;
+  font-size: $small-fontsize;
+  max-height: 46px;
+  position: fixed;
+
+  @include full-width;
+
+  z-index: $base-zaxis + 1;
+  text-align: center;
+
+  .menu {
+    color: $white;
+    padding: 15px;
+    text-align: center;
+
+    @include full-width;
+  }
+  & .two {
+    width: 50%;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+
+.top {
+  bottom: unset;
+  top: 0;
+}
+
+.relative {
+  position: relative;
+  z-index: unset;
+}

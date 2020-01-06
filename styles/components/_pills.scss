@@ -1,0 +1,16 @@
+.pills {
+  border-radius: 30px;
+  border: #485361 solid 1px;
+  padding: 5px 10px;
+  background-color: none;
+  // min-width: 115px;
+  min-height: 31px;
+  color: #485361;
+  cursor: pointer;
+  transition: $transition;
+
+  &--active {
+    background-color: #485361;
+    color: $white;
+  }
+}
