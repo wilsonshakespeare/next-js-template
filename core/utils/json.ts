@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 /**
  * Add keys and values from source object to target object
  * Will log warning (optional) if target and source have the same key

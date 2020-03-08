@@ -1,0 +1,94 @@
+.card {
+  margin-bottom: 15px;
+
+  &__header {
+    padding: 15px;
+    border-bottom: $default-border-settings;
+    box-sizing: border-box;
+  }
+
+  &__body {
+    padding: 15px;
+    box-sizing: border-box;
+    max-width: 12000px;
+
+    &--adjust-lr-space {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    &--small-padding {
+      padding: 10px !important;
+    }
+  }
+
+  &__footer {
+    padding: 15px;
+    border-top: $default-border-settings;
+    box-sizing: border-box;
+    &--with-bg {
+      background-color: $white;
+      color: $white;
+    }
+  }
+
+  &--space-lr {
+    //lr - left and right space using padding
+    padding-left: 15px / 2;
+    padding-right: 15px / 2;
+  }
+
+  &--with-border {
+    border: $default-border-settings;
+    border-radius: $border-radius-large;
+  }
+
+  &--with-tb-border {
+    border-top: $default-border-settings;
+    border-bottom: $default-border-settings;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    &.sub {
+      font-size: 80%;
+      color: mat-gray(600);
+      font-weight: $font-weight-regular;
+    }
+  }
+
+  p:first-of-type,
+  p:first-child {
+    margin-top: 0;
+  }
+
+  @include respond-to($large-up) {
+    border: $default-border-settings;
+    border-radius: $border-radius-large;
+    &__header,
+    &__body,
+    &__footer {
+      padding: 15px;
+    }
+
+    &--space-lr {
+      padding-left: 15px + 10px;
+      padding-right: 15px + 10px;
+    }
+  }
+}
+
+.card-divider {
+  padding: 15px;
+  background-color: mat-gray(600);
+  margin: 0;
+
+  @include respond-to($large-up) {
+    padding: 15px 0;
+    background-color: unset;
+  }
+}

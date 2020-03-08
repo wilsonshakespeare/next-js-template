@@ -1,0 +1,190 @@
+/************************************************************/
+/*                        SECTIONS                          */
+/************************************************************/
+.divider {
+  margin: 34px 0 24px 0;
+  border-top: solid 1px mat-gray(700);
+  text-align: center;
+  height: 14px;
+  &__text {
+    text-transform: uppercase;
+    background: $white;
+    font-size: rem($font-size-small);
+    color: mat-gray(700);
+    position: relative;
+    top: -10px;
+    display: inline-block;
+    padding: 0 5px;
+  }
+}
+
+/************************************************************/
+/*                        BORDER                            */
+/************************************************************/
+// no border class
+.no-brd {
+  &-left {
+    border-left: none !important;
+  }
+  &-right {
+    border-right: none !important;
+  }
+  &-top {
+    border-top: none !important;
+  }
+  &-bottom {
+    border-bottom: none !important;
+  }
+  &-all {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+}
+
+// Border Classes
+.brd {
+  &-top {
+    border-top: $border-color solid 1px;
+  }
+}
+
+/************************************************************/
+/*                        PADDING                           */
+/************************************************************/
+
+.pd {
+  &t {
+    padding-top: $margin-base !important;
+  }
+  &b {
+    padding-bottom: $margin-base !important;
+  }
+}
+
+// no padding classes
+.npd {
+  padding: 0 !important;
+  &t {
+    padding-top: 0 !important;
+  }
+  &b {
+    padding-bottom: 0 !important;
+  }
+  &l {
+    padding-left: 0 !important;
+  }
+  &r {
+    padding-right: 0 !important;
+  }
+}
+
+.no-padding-on-small {
+  padding: 0;
+
+  @include respond-to($medium-up) {
+    padding: 0 15px;
+  }
+}
+
+/************************************************************/
+/*                        MARGIN                            */
+/************************************************************/
+// no margin classes
+.nmg {
+  margin: 0 !important;
+  &t {
+    margin-top: 0 !important;
+  }
+  &b {
+    margin-bottom: 0 !important;
+  }
+  &l {
+    margin-left: 0 !important;
+  }
+  &r {
+    margin-right: 0 !important;
+  }
+}
+
+.mg {
+  &t {
+    margin-top: $margin-base !important;
+  }
+  &b {
+    margin-bottom: $margin-base !important;
+  }
+}
+
+/************************************************************/
+/*                  Clear and Float                         */
+/************************************************************/
+
+.clearfix {
+  @extend %clearfix;
+}
+
+.clear {
+  clear: both;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-both {
+  clear: both;
+}
+
+/************************************************************/
+/*                  Flex Helper Class                       */
+/************************************************************/
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+
+  &.flex-align-middle {
+    align-items: center;
+  }
+
+  &.flex-start {
+    justify-content: flex-start;
+  }
+
+  &.flex-end {
+    justify-content: flex-end;
+  }
+
+  &-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+/************************************************************/
+/*                      Spacing                             */
+/************************************************************/
+
+.horizontal-items-space {
+  margin-right: 5px;
+  &:first-child {
+    margin-left: 0px;
+  }
+  &:last-child {
+    margin-right: 0px;
+  }
+}

@@ -1,0 +1,93 @@
+.nav {
+  //make the sort div full-one-page
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: $max-z-index + 10;
+  left: 0;
+  top: 0;
+  overflow: scroll;
+  background-color: $white;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &__text {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: $space-small;
+  }
+
+  &__item {
+    width: 80%;
+    margin: $space-small;
+    padding: $space-regular;
+    border: $border-style;
+    box-shadow: $box-shadow;
+  }
+
+  @include respond-to($large-up) {
+    //undo the sort div full-one-page
+    position: unset;
+    height: unset;
+    z-index: unset;
+    left: unset;
+    top: unset;
+    overflow: unset;
+
+    //styles for sort div
+
+    display: flex;
+    flex-direction: row;
+    background-color: $default-light-gray;
+
+    &__close-container {
+      display: none;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      &__text {
+        display: inline;
+        margin: 0;
+        margin-right: 20px;
+        padding: 0;
+      }
+    }
+
+    &__list {
+      flex-direction: row;
+      margin-top: 0;
+      align-items: unset;
+      padding: 0;
+      border-top: none;
+    }
+
+    &__item {
+      display: inline-block;
+      float: left;
+      cursor: pointer;
+      margin: 0;
+      margin-right: 15px;
+      box-shadow: unset;
+      border: unset;
+      width: unset;
+    }
+
+    &__item:not(.nav--selected):hover {
+      background-color: unset;
+      border-bottom: $border-color 3px $border-style;
+    }
+
+    &--selected {
+      background-color: unset;
+    }
+  }
+}

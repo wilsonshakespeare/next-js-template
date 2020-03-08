@@ -1,0 +1,127 @@
+.mob-dialog-menu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: $max-z-index;
+  left: 0;
+  top: 0;
+  &.set-seperate {
+    max-height: 42px;
+  }
+  .icon {
+    margin: 0;
+    &.left-icon {
+      margin-right: 5px;
+    }
+    &.right-icon {
+      margin-left: 5px;
+    }
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+//mobile menu space to leave space between the title and content
+.mob-dialog-top-space {
+  padding-top: 49px;
+
+  @include respond-to($large-up) {
+    padding-top: 0;
+  }
+}
+.mob-dialog-bottom-space {
+  padding-bottom: 52px;
+
+  @include respond-to($large-up) {
+    padding-bottom: 0;
+  }
+}
+.mob-dialog-title {
+  padding: 10px 15px;
+  font-size: rem($font-size-normal);
+  font-weight: $font-weight-bold;
+  z-index: $max-z-index + 1;
+  display: flex;
+  justify-content: space-between;
+  .back-button {
+    line-height: 27px;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+.mob-dialog-footer {
+  background: $white;
+  box-shadow: rgba($black, 0.3) 0 0 5px;
+  bottom: 0;
+  font-size: rem($font-size-normal);
+  max-height: 53px;
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+  z-index: $max-z-index + 1;
+  .button {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+
+.show-on-desktop {
+  display: none !important;
+
+  @include respond-to($large-up) {
+    display: inline-block !important;
+  }
+}
+.show-on-small {
+  display: block !important;
+
+  @include respond-to($large-up) {
+    display: none !important;
+  }
+}
+
+.mob-sticky-menu {
+  @extend %wide;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  bottom: 0;
+  font-size: rem($font-size-smaller);
+  max-height: 46px;
+  position: fixed;
+  z-index: $max-z-index + 1;
+  text-align: center;
+
+  .menu {
+    @extend %wide;
+    padding: 15px;
+    text-align: center;
+  }
+  & .two {
+    width: 50%;
+  }
+
+  @include respond-to($large-up) {
+    display: none;
+  }
+}
+
+.top {
+  bottom: unset;
+  top: 0;
+}
+
+.relative {
+  position: relative;
+  z-index: unset;
+}

@@ -1,0 +1,76 @@
+/*************************	
+** RESETS for all elements
+*************************/
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+a {
+  transition: 0.2s all ease-in;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    transition: 0.2s all ease-out;
+    outline: 0;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  li {
+    list-style: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $font-color-main;
+  margin: 0;
+  padding: 0;
+  display: block;
+  .sub {
+    font-size: 70%;
+    display: block;
+    font-weight: $font-weight-regular;
+  }
+}
+
+input {
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+img {
+  border: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+// Fonts Reset
+small,
+.small {
+  font-size: 60%;
+}
+
+.big {
+  font-size: 128.5%;
+}

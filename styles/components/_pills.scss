@@ -1,0 +1,9 @@
+.pills {
+  border-radius: 30px;
+  padding: 5px 10px;
+  background-color: none;
+  // min-width: 115px;
+  min-height: 31px;
+  cursor: pointer;
+  transition: $transition-base;
+}

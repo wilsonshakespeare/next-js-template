@@ -1,0 +1,12 @@
+@import '../../styles/abstract/colors/material_palette';
+@import '../../styles/abstract/colors/names';
+@import '../../styles/abstract/variables/colors';
+@import '../../styles/abstract/variables/typography';
+@import '../../styles/abstract/responsive';
+// mixins and placeholders might use existing variables
+@import '../../styles/abstract/mixins';
+@import '../../styles/abstract/placeholders';
+// functions will use existing variables
+@import '../../styles/abstract/functions';
+@import '../../styles/abstract/google-font';
+@import '../../styles/abstract/variables';

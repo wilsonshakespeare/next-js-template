@@ -1,0 +1,40 @@
+// convert to classes for usage
+// Will receive bg-red-500 as colour class for background colour
+@each $color, $value in $mat-color-map {
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+}
+
+.warn {
+  &-color {
+    color: $warning-color;
+  }
+  &-bg {
+    background: $warning-color;
+  }
+}
+.success {
+  &-color {
+    color: $success-color;
+  }
+  &-bg {
+    background: $success-color;
+  }
+}
+.info {
+  &-color {
+    color: $info-color;
+  }
+  &-bg {
+    background: $info-color;
+  }
+}
+.error {
+  &-color {
+    color: $danger-color;
+  }
+  &-bg {
+    background: $danger-color;
+  }
+}

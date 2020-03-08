@@ -1,0 +1,20 @@
+/**
+ * Please follow the following style guide using 7-1 architecture
+ * https://sass-guidelin.es/#introduction
+ * Vendor is not being used because we do not intend to use any framework
+ */
+
+/* ---Core--- */
+@import './abstract/collective_variables';
+
+/* ---Base--- */ // @import "base/_reset.scss";
+@import './base/base';
+
+/* ---Components--- */
+@import './components/components';
+
+/* ---Layout--- */
+@import 'layouts/layouts';
+
+/* ---Theme--- */
+@import 'theme/theme';

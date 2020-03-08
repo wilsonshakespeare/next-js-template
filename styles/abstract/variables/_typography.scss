@@ -1,0 +1,90 @@
+// Text Colors
+$text-color-gray-accent: lighten(black, 60%) !default;
+$text-color-light: #6c757d !default;
+
+// font-weights
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-bold: 600 !default;
+$font-weight-heavy: 700 !default;
+$font-weights: $font-weight-regular $font-weight-bold $font-weight-heavy !default;
+
+// Fonts Setting
+$font-main: 'Lato' !default;
+$font-main-sizes: $font-weights !default;
+$font-color-main: #333 !default;
+$font-secondary: 'Open Sans' !default;
+$font-secondary-sizes: $font-weights !default;
+$font-color-secondary: $text-color-light !default;
+$base-ico-fonts: 'icon-fonts' !default;
+$icon-unicode: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !default;
+$fonts-defaults: Helvetica, Arial, sans-serif !default;
+$main-fonts: $font-main, $fonts-defaults !default;
+$secondary-fonts: $font-secondary, $fonts-defaults !default;
+
+// Standard Font Weights
+// For Mobile Font Size best is 16px:
+// https://www.woorank.com/en/edu/seo-guides/mobile-font-size
+
+// Offset determines
+$font-size-offset: 0px !default;
+
+// Standard Font Sizes
+$font-size-smaller: 12px !default;
+$font-size-small: 14px !default;
+$font-size-normal: 16px !default; // base font size // regular font no need to assign anywhere since it assigned in the html
+$font-size-large: 28px !default;
+$font-size-extra-large: 36px !default;
+$font-size-hero: 48px !default;
+
+// font sizes with responsive setting
+$base-font-desktop: $font-size-normal + 4px !default;
+$base-font-tablet: $font-size-normal + 2px !default;
+$base-font-size: $font-size-normal !default;
+
+// Header fonts with responsive settings
+$header-fonts: (
+  h1: (
+    base: 20px,
+    tablet: 24px,
+    desktop: 26px,
+  ),
+  h2: (
+    base: 18px,
+    tablet: 20px,
+    desktop: 22px,
+  ),
+  h3: (
+    base: 16px,
+    tablet: 18px,
+    desktop: 20px,
+  ),
+  h4: (
+    base: 15px,
+    tablet: 16.5px,
+    desktop: 18px,
+  ),
+  h5: (
+    base: 13px,
+    tablet: 14.5px,
+    desktop: 16px,
+  ),
+  h6: (
+    base: 12px,
+    tablet: 13px,
+    desktop: 14px,
+  ),
+);
+
+// Other Font Sizes Declaration
+/**
+  * All other declaration based mobile size setting
+  * All would be responsive base on rem based on following settings
+  * $base-font-desktop: $font-size-normal + 4;
+  * $base-font-tablet: $font-size-normal + 2;
+  * $base-font-size: $font-size-normal;
+  */
+
+$font-size-price: 24px !default;
+$font-size-icon: 24px !default;
+$font-size-rating__star: 15px !default; // rating is an svg Icon font-size makes the star size

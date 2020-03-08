@@ -1,0 +1,74 @@
+.rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  &__bubble {
+    position: relative;
+    margin-right: 5px;
+    font-weight: $font-weight-bold;
+    color: mat-green(300);
+
+    &__group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      height: 24px;
+      background: mat-green(300);
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        margin-top: 14px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid mat-green(300);
+        border-left: 8px solid transparent;
+      }
+
+      &__number {
+        color: $white;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        font-style: normal;
+        font-size: rem(11px);
+      }
+    }
+  }
+
+  &__review-group {
+    &__desc {
+      color: mat-green(300);
+      font-weight: $font-weight-bold;
+    }
+
+    &__count {
+      color: mat-blue-gray(300);
+      font-weight: $font-weight-regular;
+    }
+  }
+
+  @include respond-to($large-up) {
+    &__bubble {
+      &__group {
+        width: 30px;
+        height: 28px;
+
+        &::after {
+          margin-top: 16px;
+          border-top: 12px solid #81c784;
+          border-left: 12px solid transparent;
+        }
+        &__number {
+          font-size: rem(13px);
+        }
+      }
+    }
+  }
+}

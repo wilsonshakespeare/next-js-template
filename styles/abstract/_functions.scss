@@ -1,0 +1,63 @@
+// Rem from pixel
+@function rem($pxfontsize) {
+  @return ($pxfontsize / $base-font-size) + rem;
+}
+
+// in case tablet has different rem
+@function rem-tablet($pxfontsize) {
+  @return ($pxfontsize / $base-font-tablet) + rem;
+}
+
+// in case tablet has different rem
+@function rem-desktop($pxfontsize) {
+  @return ($pxfontsize / $base-font-desktop) + rem;
+}
+
+// Get pixel from rem
+@function px($rem) {
+  @return ($rem * $base-font-size) + px;
+}
+
+// in case tablet has different rem
+@function px-tablet($rem) {
+  @return ($rem * $base-font-tablet) + px;
+}
+
+// in case tablet has different rem
+@function px-desktop($rem) {
+  @return ($rem * $base-font-desktop) + px;
+}
+
+// Ensuring no repeat item in list
+@function list-unique($list) {
+  $result: ();
+  @each $item in $list {
+    @if not index($result, $item + '') {
+      $result: append($result, $item + '');
+    }
+  }
+  @each $item in $result {
+    $result: set-nth($result, index($result, $item), unquote($item));
+  }
+  @return $result;
+}
+
+// Standard string replace function
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @return if(
+    $index,
+    str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace),
+    $string
+  );
+}
+
+// Explode string characters into list
+@function str-explode($string) {
+  $list: ();
+  @for $i from 1 through str-length($string) {
+    $list: append($list, str-slice($string, $i, $i));
+  }
+  @return $list;
+}

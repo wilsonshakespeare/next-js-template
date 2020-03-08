@@ -23,7 +23,8 @@ export abstract class Server<MiddlewareValues = {}, MiddlewareOption = {}> {
     ssrMiddleware: SsrMiddleware<MiddlewareValues, MiddlewareOption> = null
   ) {
     dotenv.config();
-    this._environment = process.env.ENVIRONMENT || 'development';
+    this._environment = process.env.NODE_ENV || 'development';
+    console.log(process.env.NODE_ENV);
     this._isDev = this.environment !== 'production';
     this.app = next({ dev: this._isDev });
     this.renderer = new Renderer(this.app, ssrMiddleware);
@@ -57,6 +58,7 @@ export abstract class Server<MiddlewareValues = {}, MiddlewareOption = {}> {
     // To allow the express to parse JSON request body
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
+
     this.setupMiddlewares(server);
 
     // To allow the express to render EJS view templates

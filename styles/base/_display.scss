@@ -1,0 +1,91 @@
+// z-index
+.max-z {
+  z-index: $max-z-index !important;
+}
+
+// Display Properties
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.show-flex {
+  display: flex !important;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.block {
+  display: block !important;
+}
+
+// Text Display Properties
+.text {
+  // Weight
+  &-light {
+    font-weight: $font-weight-light;
+  }
+  &-regular {
+    font-weight: $font-weight-regular;
+  }
+  &-bold {
+    font-weight: $font-weight-bold;
+  }
+  &-heavy {
+    font-weight: $font-weight-heavy;
+  }
+  // Ellipsis
+  &-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  // Alignment
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  // Transform
+  &-lowercase {
+    text-transform: lowercase;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-capitalize {
+    text-transform: capitalize;
+  }
+  // Overflow
+  &-overflow {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+// Others:
+.wide {
+  @extend %wide;
+}
+
+.full-width {
+  @extend %full-width;
+}
+
+// List Display
+.list-none {
+  list-style: none;
+}
+
+// Background
+.no-bg {
+  background: none;
+  border: none;
+  outline: none;
+}

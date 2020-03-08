@@ -6,12 +6,16 @@ export class RouteModule {
     switch (route.method) {
       case 'PUT':
         server.put(route.path, route.renderFunction);
+        break;
       case 'GET':
         server.get(route.path, route.renderFunction);
+        break;
       case 'POST':
         server.post(route.path, route.renderFunction);
+        break;
       case 'DELETE':
         server.delete(route.path, route.renderFunction);
+        break;
     }
   }
 

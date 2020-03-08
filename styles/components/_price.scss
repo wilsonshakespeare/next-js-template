@@ -1,0 +1,55 @@
+.price {
+  float: right;
+  text-align: right;
+  &__currency {
+    font-size: 70%;
+    margin-right: 5px;
+  }
+  &__sub {
+    color: mat-gray(600);
+    font-size: 70%;
+    display: block;
+    font-weight: $font-weight-regular;
+  }
+
+  &--1 {
+    font-size: rem(18px);
+  }
+  &--2 {
+    font-size: rem(16px);
+  }
+  &--3 {
+    font-size: rem(14px);
+  }
+  &--4 {
+    font-size: rem(12px);
+  }
+
+  &--1 small,
+  &--2 small,
+  &--3 span span {
+    margin-right: 4px;
+  }
+
+  & > .content-placeholder {
+    border-radius: 8px;
+  }
+
+  @include respond-to($large-up) {
+    &--1 {
+      font-size: rem(27px);
+      .sub {
+        font-size: 60%;
+      }
+    }
+    &--2 {
+      font-size: rem(18px);
+    }
+    &--3 {
+      font-size: rem(16px);
+    }
+    &--4 {
+      font-size: rem(14px);
+    }
+  }
+}

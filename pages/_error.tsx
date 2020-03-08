@@ -11,11 +11,7 @@ class Error extends React.Component {
   }
 
   public render() {
-    return (
-      <div>
-        <p>Temp Not Found Page - Add Not Found Component After PageBase setup</p>
-      </div>
-    );
+    return <p>Temp Not Found Page - Add Not Found Component After PageBase setup</p>;
   }
 
   /*/

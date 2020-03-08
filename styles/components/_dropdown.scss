@@ -1,0 +1,32 @@
+// Need
+.dropdown {
+  position: relative;
+  @include respond-to($large-up) {
+    position: absolute;
+    min-width: 320px;
+    background: white;
+    box-shadow: none;
+    border-radius: 5px;
+    box-shadow: $shadow-color 0 0 5px;
+    top: 115%;
+    left: -22%;
+    &::after,
+    &::before {
+      position: absolute;
+      content: '';
+      border: solid transparent 10px;
+      border-bottom-color: white;
+      z-index: 1;
+      top: -20px;
+      left: 48%;
+    }
+    &__content {
+      max-height: 400px;
+      overflow: auto;
+    }
+  }
+  &.align-right {
+    left: auto !important;
+    right: 0 !important;
+  }
+}
