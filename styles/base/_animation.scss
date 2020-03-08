@@ -1,0 +1,74 @@
+//transition mixin
+@mixin transition($property: all, $duration: 1s, $timingEffect: ease, $delay: 1s) {
+  transition: $property, $duration, $timingEffect, $delay;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes kf_fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes kf_fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kf_slide-down {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes kf_rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.ani__page-change > span {
+  visibility: hidden;
+}
+
+.ani__infinite-spin {
+  padding-left: 4px;
+}
+
+.ani__infinite-spin svg {
+  animation: kf_rotation 1s infinite linear;
+  vertical-align: middle;
+}
+
+i.ani__infinite-spin.page-change-loader {
+  padding-left: 0;
+  position: absolute;
+  left: 45%;
+}
+
+.ani__fade-in {
+  animation-name: kf_fadeIn;
+}
+
+.ani__slide-down {
+  animation-name: kf_slide-down;
+}

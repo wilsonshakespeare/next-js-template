@@ -1,0 +1,53 @@
+// NOTE:
+// These variables are not being used for other abstract scss,
+// They are meant for the whole project components and can use _functions
+
+// maximum z index
+$max-z-index: 1000 !default;
+$animation-speed: 0.3s !default;
+
+// Forms
+$form-field_bg: lighten($black, 98%);
+$form-field_brd: darken($border-color, 10%) solid 1px;
+$form-field_padding: 10px 15px;
+$form-min-height: 39px;
+$form-label-color: lighten($black, 40%);
+$form-pre-pend-color: lighten($black, 85%);
+
+$input-font-size: $font-size-small !default; // font size for forms elements
+$input-line-height: $font-size-normal !default; // line height for forms elements
+$input-padding: 10px 22px !default; // padding for forms elements
+$input-height: 40px; // height for forms elements
+
+// Box shadow
+$box-shadow: 1px 2px 2px $shadow-color !default;
+
+// Borders
+$border-style: solid !default;
+$border-radius-normal: 4px !default;
+$border-radius-large: 8px !default;
+$border-width: 1px !default;
+$default-border-settings: $border-color $border-style $border-width !default;
+
+// Buttons
+$btn-padding-xs: 5px !default;
+$btn-padding-sm: 7px !default;
+$btn-padding: 12px 20px !default;
+$btn-padding-lg: 15px 24px !default;
+//
+$btn-size-xs: 0.7rem !default;
+$btn-size-sm: 0.9rem !default;
+$btn-size: 1rem !default;
+$btn-size-lg: 1.1rem !default;
+
+// Spacing
+// padding / margin for the layout and components
+$space-small: 4px;
+$space-regular: 8px;
+$space-large: 16px;
+$space-xlarge: 24px;
+
+$margin-base: $font-size-normal + $font-size-offset !default;
+
+// Transitions
+$transition-base: all 0.3s ease-in-out !default;

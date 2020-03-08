@@ -1,7 +1,7 @@
 import initialState from './initial-state';
 import { RESET_ERROR_STATE } from './action-types';
 import { ReducerFunction } from './typings.d';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 export const reducer: ReducerFunction = (state = initialState, action) => {
   const { type, payload } = action;

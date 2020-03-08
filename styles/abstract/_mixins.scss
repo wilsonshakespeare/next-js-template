@@ -1,43 +1,9 @@
-@mixin clearfix {
-  &::after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-}
-
-// Inline List
-@mixin inline-list {
-  list-style: none;
-  padding: 0;
-
-  @include clearfix;
-  li {
-    display: inline-block;
-    float: left;
-    padding: 0 10px;
-    margin: 0;
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-}
-
-//full width
-@mixin full-width {
-  float: left;
-  width: 100%;
-}
-
 //caret arrow dont
-@mixin caret($direction, $ccolor) {
+@mixin caret($direction, $color) {
   position: absolute;
-  content: "";
+  content: '';
   border: 5px solid transparent;
-  border-#{$direction}-color: $ccolor;
+  border-#{$direction}-color: $color;
 }
 
 // Linear Gradient
@@ -50,7 +16,7 @@
   $length: length($pos); // Parse Side and corner positions
 
   @if ($length > 1) {
-    @if nth($pos, 1) == "to" {
+    @if nth($pos, 1) == 'to' {
       // Newer syntax
       $side: nth($pos, 2);
 
@@ -58,66 +24,45 @@
         // eg. to top
         // Swap for backwards compatability
         $degree: _position-flipper(nth($pos, 2));
-      }
-
-      @else if $length==3 {
+      } @else if $length==3 {
         // eg. to top left
         $corner: nth($pos, 3);
       }
-    }
-
-    @else if $length==2 {
+    } @else if $length==2 {
       // Older syntax ("top left")
       $side: _position-flipper(nth($pos, 1));
       $corner: _position-flipper(nth($pos, 2));
     }
 
-    @if ("#{$side} #{$corner}"=="left top") or
-      ("#{$side} #{$corner}"=="top left") {
+    @if ('#{$side} #{$corner}'=='left top') or ('#{$side} #{$corner}'=='top left') {
       $degree: _position-flipper(#{$side}) _position-flipper(#{$corner});
-    }
-
-    @else if
-      ("#{$side} #{$corner}"=="right top") or
-      ("#{$side} #{$corner}"=="top right") {
+    } @else if ('#{$side} #{$corner}'=='right top') or ('#{$side} #{$corner}'=='top right') {
       $degree: _position-flipper(#{$side}) _position-flipper(#{$corner});
-    }
-
-    @else if
-      ("#{$side} #{$corner}"=="right bottom") or
-      ("#{$side} #{$corner}"=="bottom right") {
+    } @else if ('#{$side} #{$corner}'=='right bottom') or ('#{$side} #{$corner}'=='bottom right') {
       $degree: _position-flipper(#{$side}) _position-flipper(#{$corner});
-    }
-
-    @else if
-      ("#{$side} #{$corner}"=="left bottom") or
-      ("#{$side} #{$corner}"=="bottom left") {
+    } @else if ('#{$side} #{$corner}'=='left bottom') or ('#{$side} #{$corner}'=='bottom left') {
       $degree: _position-flipper(#{$side}) _position-flipper(#{$corner});
     }
     $spec: to $side $corner;
-  }
-
-  @else if $length==1 {
+  } @else if $length==1 {
     // Swap for backwards compatability
     @if $type==string {
       $degree: $pos;
       $spec: to _position-flipper($pos);
-    }
-
-    @else {
+    } @else {
       $degree: -270 - $pos; //rotate the gradient opposite from spec
       $spec: $pos;
     }
   }
-  $degree: unquote($degree + ",");
-  $spec: unquote($spec + ",");
+  $degree: unquote($degree + ',');
+  $spec: unquote($spec + ',');
 
   @return $degree $spec;
 }
 
 @function _position-flipper($pos) {
-  @return if($pos==left, right, null) if($pos==right, left, null)
-    if($pos==top, bottom, null) if($pos==bottom, top, null);
+  @return if($pos==left, right, null) if($pos==right, left, null) if($pos==top, bottom, null)
+    if($pos==bottom, top, null);
 }
 
 @mixin linear-gradient(
@@ -139,7 +84,7 @@
   $pos-spec: null;
   $pos-degree: null; // If $pos is missing from mixin, reassign vars and add default position
 
-  @if ($pos-type==color) or (nth($pos, 1) == "transparent") {
+  @if ($pos-type==color) or (nth($pos, 1) == 'transparent') {
     $g10: $g9;
     $g9: $g8;
     $g8: $g7;
@@ -159,22 +104,16 @@
     $pos-spec: nth($positions, 2);
   }
   $full: $g1, $g2, $g3, $g4, $g5, $g6, $g7, $g8, $g9, $g10; // Set $g1 as the default fallback color
-  $fallback-color: nth(
-    $g1,
-    1
-  ); // If $fallback is a color use that color as the fallback color
+  $fallback-color: nth($g1, 1); // If $fallback is a color use that color as the fallback color
 
-  @if (type-of($fallback) ==color) or ($fallback== "transparent") {
+  @if (type-of($fallback) ==color) or ($fallback== 'transparent') {
     $fallback-color: $fallback;
   }
 
   background-color: $fallback-color;
-  background-image:
-    -webkit-linear-gradient(
-      $pos-degree $full
-    ); // Safari 5.1+, Chrome
+  background-image: -webkit-linear-gradient($pos-degree $full); // Safari 5.1+, Chrome
 
-  background-image: unquote("linear-gradient(#{$pos-spec}#{$full})");
+  background-image: unquote('linear-gradient(#{$pos-spec}#{$full})');
 }
 
 // Radial Gradient
@@ -182,10 +121,10 @@
   $shape-size-spec: null;
 
   @each $value in $shape-size {
-    @if ($value== "cover") or ($value== "contain") {
+    @if ($value== 'cover') or ($value== 'contain') {
       $value: null;
     }
-    $shape-size-spec: "#{$shape-size-spec} #{$value}";
+    $shape-size-spec: '#{$shape-size-spec} #{$value}';
   }
 
   @return $shape-size-spec;
@@ -210,9 +149,7 @@
         @for $i from ($spec-at-index + 1) through length($value) {
           $pos: $pos nth($value, $i);
         }
-      }
-
-      @else if $spec-at-index==1 {
+      } @else if $spec-at-index==1 {
         @for $i from ($spec-at-index + 1) through length($value) {
           $pos: $pos nth($value, $i);
         }
@@ -221,36 +158,34 @@
     } // If not spec calculate correct values
 
     @else {
-      @if ($pos-type !=color) or ($first-val != "transparent") {
+      @if ($pos-type !=color) or ($first-val != 'transparent') {
         @if ($pos-type==number) or
-          ($first-val== "center") or
-          ($first-val== "top") or
-          ($first-val== "right") or
-          ($first-val== "bottom") or
-          ($first-val== "left") {
+          ($first-val== 'center') or
+          ($first-val== 'top') or
+          ($first-val== 'right') or
+          ($first-val== 'bottom') or
+          ($first-val== 'left')
+        {
           $pos: $value;
 
           @if $pos==$g1 {
             $g1: null;
           }
-        }
-
-        @else if
-          ($first-val== "ellipse") or
-          ($first-val== "circle") or
-          ($first-val== "closest-side") or
-          ($first-val== "closest-corner") or
-          ($first-val== "farthest-side") or
-          ($first-val== "farthest-corner") or
-          ($first-val== "contain") or
-          ($first-val== "cover") {
+        } @else if
+          ($first-val== 'ellipse') or
+          ($first-val== 'circle') or
+          ($first-val== 'closest-side') or
+          ($first-val== 'closest-corner') or
+          ($first-val== 'farthest-side') or
+          ($first-val== 'farthest-corner') or
+          ($first-val== 'contain') or
+          ($first-val== 'cover')
+        {
           $shape-size: $value;
 
           @if $value==$g1 {
             $g1: null;
-          }
-
-          @else if $value==$g2 {
+          } @else if $value==$g2 {
             $g2: null;
           }
         }
@@ -282,33 +217,25 @@
   $pos: nth($data, 3);
   $shape-size: nth($data, 4);
   $full: $g1, $g2, $g3, $g4, $g5, $g6, $g7, $g8, $g9, $g10; // Strip deprecated cover/contain for spec
-  $shape-size-spec: _shape-size-stripper(
-    $shape-size
-  ); // Set $g1 as the default fallback color
+  $shape-size-spec: _shape-size-stripper($shape-size); // Set $g1 as the default fallback color
   $first-color: nth($full, 1);
   $fallback-color: nth($first-color, 1);
 
-  @if (type-of($fallback) ==color) or ($fallback== "transparent") {
+  @if (type-of($fallback) ==color) or ($fallback== 'transparent') {
     $fallback-color: $fallback;
   } // Add Commas and spaces
-  $shape-size: if($shape-size, "#{$shape-size}, ", null);
-  $pos: if($pos, "#{$pos}, ", null);
-  $pos-spec: if($pos, "at #{$pos}", null);
+  $shape-size: if($shape-size, '#{$shape-size}, ', null);
+  $pos: if($pos, '#{$pos}, ', null);
+  $pos-spec: if($pos, 'at #{$pos}', null);
   $shape-size-spec: if(
-    ($shape-size-spec != " ") and ($pos==null),
-    "#{$shape-size-spec}, ",
-    "#{$shape-size-spec} "
+    ($shape-size-spec != ' ') and ($pos==null),
+    '#{$shape-size-spec}, ',
+    '#{$shape-size-spec} '
   );
 
   background-color: $fallback-color;
-  background-image:
-    -webkit-radial-gradient(
-      unquote(#{$pos}#{$shape-size}#{$full})
-    );
-  background-image:
-    unquote(
-      "radial-gradient(#{$shape-size-spec}#{$pos-spec}#{$full})"
-    );
+  background-image: -webkit-radial-gradient(unquote(#{$pos}#{$shape-size}#{$full}));
+  background-image: unquote('radial-gradient(#{$shape-size-spec}#{$pos-spec}#{$full})');
 }
 
 // Triangle
@@ -321,10 +248,7 @@
   height: 0;
   width: 0;
 
-  @if ($direction==up) or
-    ($direction==down) or
-    ($direction==right) or
-    ($direction==left) {
+  @if ($direction==up) or ($direction==down) or ($direction==right) or ($direction==left) {
     $width: $width / 2;
     $height: if(length($size) > 1, $height, $height/2);
 
@@ -332,79 +256,49 @@
       border-bottom: $height solid $foreground-color;
       border-left: $width solid $background-color;
       border-right: $width solid $background-color;
-    }
-
-    @else if $direction==right {
+    } @else if $direction==right {
       border-bottom: $width solid $background-color;
       border-left: $height solid $foreground-color;
       border-top: $width solid $background-color;
-    }
-
-    @else if $direction==down {
+    } @else if $direction==down {
       border-left: $width solid $background-color;
       border-right: $width solid $background-color;
       border-top: $height solid $foreground-color;
-    }
-
-    @else if $direction==left {
+    } @else if $direction==left {
       border-bottom: $width solid $background-color;
       border-right: $height solid $foreground-color;
       border-top: $width solid $background-color;
     }
-  }
-
-  @else if ($direction==up-right) or ($direction==up-left) {
+  } @else if ($direction==up-right) or ($direction==up-left) {
     border-top: $height solid $foreground-color;
 
     @if $direction==up-right {
       border-left: $width solid $background-color;
-    }
-
-    @else if $direction==up-left {
+    } @else if $direction==up-left {
       border-right: $width solid $background-color;
     }
-  }
-
-  @else if ($direction==down-right) or ($direction==down-left) {
+  } @else if ($direction==down-right) or ($direction==down-left) {
     border-bottom: $height solid $foreground-color;
 
     @if $direction==down-right {
       border-left: $width solid $background-color;
-    }
-
-    @else if $direction==down-left {
+    } @else if $direction==down-left {
       border-right: $width solid $background-color;
     }
-  }
-
-  @else if ($direction==inset-up) {
+  } @else if ($direction==inset-up) {
     border-color: $background-color $background-color $foreground-color;
     border-style: solid;
     border-width: $height $width;
-  }
-
-  @else if ($direction==inset-down) {
+  } @else if ($direction==inset-down) {
     border-color: $foreground-color $background-color $background-color;
     border-style: solid;
     border-width: $height $width;
-  }
-
-  @else if ($direction==inset-right) {
-    border-color:
-      $background-color
-      $background-color
-      $background-color
-      $foreground-color;
+  } @else if ($direction==inset-right) {
+    border-color: $background-color $background-color $background-color $foreground-color;
     border-style: solid;
     border-width: $width $height;
-  }
-
-  @else if ($direction==inset-left) {
-    border-color:
-      $background-color
-      $foreground-color
-      $background-color
-      $background-color;
+  } @else if ($direction==inset-left) {
+    border-color: $background-color $foreground-color $background-color $background-color;
     border-style: solid;
     border-width: $width $height;
   }
@@ -417,97 +311,4 @@
   }
 
   #{$property}: $value;
-}
-
-//
-// RESPONSIVE SETTINGS
-//
-$sm: (
-  min: 576px
-);
-$md: (
-  min: 800px
-);
-$lg: (
-  min: 992px
-);
-$xl: (
-  min: 1200px
-);
-
-$max-width: 1200px; //max width for the container class
-
-$small-only: (
-  max: map-get($sm, min) - 1
-);
-$small-up: (
-  min: map-get($sm, min)
-);
-$small-down: (
-  max: map-get($md, min) - 1
-);
-
-$medium-up: (
-  min: map-get($md, min)
-);
-$medium-down: (
-  max: map-get($md, min) - 1
-);
-$medium-only: (
-  min: map-get($md, min),
-  max: map-get($lg, min) - 1
-);
-
-$large-down: (
-  max: map-get($lg, min) - 1
-);
-$large-up: (
-  min: map-get($lg, min)
-);
-
-$xarge-down: (
-  max: map-get($xl, min) - 1
-);
-$xlarge-up: (
-  min: map-get($xl, min)
-);
-// Responsive breakpoint mixin
-@mixin respond-to($map) {
-  $query: "";
-
-  @if map-has-key($map, min) {
-    $query: append(
-      $query,
-      (
-        min-width: #{map-get($map, min)}
-      )
-    );
-  }
-
-  @if map-has-key($map, min) and map-has-key($map, max) {
-    $query: append($query, and);
-  }
-
-  @if map-has-key($map, max) {
-    $query: append(
-      $query,
-      (
-        max-width: #{map-get($map, max)}
-      )
-    );
-  }
-
-  @media screen and #{$query} {
-    @content;
-  }
-}
-
-//transistion mixin
-@mixin transistion(
-  $property: all,
-  $duration: 1s,
-  $timingEffect: ease,
-  $delay: 1s
-) {
-  transition: $property, $duration, $timingEffect, $delay;
 }

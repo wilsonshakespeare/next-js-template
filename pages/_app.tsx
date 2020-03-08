@@ -30,7 +30,11 @@ class ProjectApp extends App<IProps> {
       <Container>
         {/** Client Side Init Only */}
         <Init store={store} />
-        <Provider store={store} context={AppContext}>
+        <Provider
+          // @ts-ignore store not recognised by react-redux Provider
+          store={store}
+          context={AppContext}
+        >
           <Component {...pageProps} context={AppContext} />
         </Provider>
       </Container>

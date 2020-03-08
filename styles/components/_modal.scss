@@ -40,7 +40,7 @@
 
   &__close {
     float: right;
-    font-size: 21px;
+    font-size: rem(21px);
     font-weight: 700;
     line-height: 1;
     color: #000;
@@ -75,7 +75,7 @@
     .button--bordered {
       border-color: #ccc;
       border-width: 1px;
-      border-radius: $base-radius;
+      border-radius: $border-radius-normal;
       color: $black;
       line-height: 1.42857143;
 
@@ -88,7 +88,6 @@
   }
 
   @include respond-to($medium-up) {
-
     &__dialog {
       width: 70%;
       margin: 30px auto;

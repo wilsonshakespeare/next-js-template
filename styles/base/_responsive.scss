@@ -1,0 +1,82 @@
+/************************************************************/
+/*                  Visibility Classes                      */
+/************************************************************/
+/// 1. Do not override display property like display: block !important:
+///    Because some display are using others like display: flex or etc. We do not want to override
+/// 2. Only use hide as helper: The comments show the use cases
+
+// Use Case: Only Small and Above View - Unlikely
+// will hide for small and above
+.hide-sm-down {
+  @include respond-to($small-down) {
+    display: none !important;
+  }
+}
+
+// Use Case: Only Exist for XS View - Unlikely
+// will hide for small and above
+.hide-sm-up {
+  @include respond-to($small-up) {
+    display: none !important;
+  }
+}
+
+// Use Case: Tablet and Above View
+// will hide for small and below
+.hide-md-down {
+  @include respond-to($medium-down) {
+    display: none !important;
+  }
+}
+
+// Use Case: Mobile Only View
+// will hide for medium and above
+.hide-md-up {
+  @include respond-to($medium-up) {
+    display: none !important;
+  }
+}
+
+// Use Case: Tablet Only View
+// will hide for small and below and large and above
+.md-only {
+  // cannot use medium-only: because is not diplay: block / flex !important
+  @include respond-to($large-up) {
+    display: none !important;
+  }
+  @include respond-to($medium-down) {
+    display: none !important;
+  }
+}
+
+// Use Case: Desktop Only View
+// will hide for medium and below
+.hide-lg-down {
+  @include respond-to($large-down) {
+    display: none !important;
+  }
+}
+
+// Use Case: Tablet and Below Only View
+// will hide for large and above
+.hide-lg-up {
+  @include respond-to($large-up) {
+    display: none !important;
+  }
+}
+
+// Use Case: Large Desktop Only View - Unlikely
+// will hide for large and below
+.hide-xl-down {
+  @include respond-to($xlarge-down) {
+    display: none !important;
+  }
+}
+
+// Use Case: Desktop and Below Only View - Unlikely
+// will hide for xlarge and above
+.hide-xl-up {
+  @include respond-to($xlarge-up) {
+    display: none !important;
+  }
+}

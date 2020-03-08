@@ -6,6 +6,7 @@ export interface BrandingOption {
 }
 
 export interface ThemeOption {
+  backgroundColor: string;
   primaryColor: string;
   primaryColorHover: string;
   primaryColorActive: string;

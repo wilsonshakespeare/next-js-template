@@ -1,0 +1,18 @@
+html {
+  background-color: $color-background;
+}
+
+header {
+  background-color: $color-background-header;
+}
+footer {
+  background-color: $color-background-footer;
+}
+
+a {
+  color: $link-color;
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+  }
+}

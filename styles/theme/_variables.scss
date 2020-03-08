@@ -1,0 +1,22 @@
+// Check README for how Themeing should be done
+
+// Themable Variables
+$color-background: #f5f5f5;
+$color-background-header: #485361;
+$color-background-header-contrast: #fff;
+$color-background-footer: #2c2c2c;
+$color-background-footer-contrast: #fff;
+$color-primary: #007dbb;
+$color-primary-contrast: #fff;
+$color-primary-light: #58acee;
+$color-primary-dark: #00518b;
+$color-primary-hover: lighten($color-primary-light, 10%);
+$color-secondary: #50016a;
+$color-secondary-contrast: #fff;
+$color-secondary-light: #803799;
+$color-secondary-dark: #25003e;
+$color-secondary-hover: lighten($color-secondary-light, 10%);
+$color-tertiary: #ffca28;
+$color-tertiary-hover: lighten($color-tertiary, 10%);
+$link-color: $color-primary-dark;
+$link-color-hover: lighten($color-primary-dark, 10%);

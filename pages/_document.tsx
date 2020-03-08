@@ -29,10 +29,6 @@ export default class AppDocument extends Document {
             />
             <meta name="mobile-web-app-capable" content="yes" />
             <meta name="theme-color" content={config.theme.primaryColor} />
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Asap:400,500,600,700&display=swap"
-            />
             <link href={config.branding.favicon} rel="shortcut icon" />
             {style}
           </Head>

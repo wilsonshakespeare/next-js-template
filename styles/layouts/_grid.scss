@@ -1,4 +1,4 @@
-@mixin outer-container($local-max-width: $max-width) {
+@mixin outer-container($local-max-width: $max-width-container) {
   max-width: $local-max-width;
   margin: {
     left: auto;
@@ -44,47 +44,6 @@
   & .row {
     margin-left: -$grid-padding;
     margin-right: -$grid-padding;
-  }
-}
-
-// Display classes
-.hide-for-small {
-  @include respond-to($small-only) {
-    display: none !important;
-  }
-}
-
-.hide-for-medium {
-  @include respond-to($medium-only) {
-    display: none !important;
-  }
-}
-
-.hide-for-medium-up {
-  @include respond-to($medium-up) {
-    display: none !important;
-  }
-}
-
-.hide-for-large {
-  @include respond-to($large-up) {
-    display: none !important;
-  }
-}
-
-.visible-md {
-  display: none;
-
-  @include respond-to($medium-up) {
-    display: block !important;
-  }
-}
-
-.visible-lg {
-  display: none;
-
-  @include respond-to($large-up) {
-    display: block !important;
   }
 }
 

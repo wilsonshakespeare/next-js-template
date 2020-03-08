@@ -1,10 +1,41 @@
-/// <reference path="../app.scss" />
-
-/*************************
-** RESETS form fields
+// TODO: Check Precedence Necessity and Rearrange
+/*************************	
+** RESETS for form fields	
 *************************/
+//all avalilable input types
+//color,date, datetime, datetime-local, email, month, number, range, search, tel, time, url, week,
+select,
+input,
+textarea {
+  border: $form-field_brd;
+  padding: $form-field_padding;
+  min-height: $form-min-height;
+  background: $form-field_bg;
+  width: 100%;
+  font-size: 90%;
+  &.inline-field {
+    padding: 0.357rem 0.5rem;
+    width: auto;
+    min-height: auto;
+  }
+  font-family: $main-fonts;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  @include respond-to($medium-up) {
+    font-size: 100%;
+  }
+}
+input[type='checkbox'] {
+  font-family: $main-fonts;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -13,7 +44,7 @@ input[type="number"] {
   }
 }
 
-input[type="radio"] {
+input[type='radio'] {
   vertical-align: baseline;
   margin: 0;
   padding: 0;
@@ -38,26 +69,9 @@ select {
   }
 }
 
-//all avalilable input types
-
-// //color,date, datetime, datetime-local, email, month, number, range, search, tel, time, url, week,
-// select, input:not([type='checkbox']), textarea {
-//   border: $form-field_brd;
-//   padding: $form-field_padding;
-//   min-height: $form-min_height;
-//   background: $form-field_bg;
-//   width: 100%;
-//   font-size: 90%;
-//   &.inline-field {
-//     padding: .357rem .5rem;
-//     width: auto;
-//     min-height: auto;
-//   }
-//   @include respond-to($medium-up) {
-//     font-size: 100%;
-//   }
-// }
-
+/*************************	
+** Container classes for form fields	
+*************************/
 //form fields container
 .form-field {
   position: relative;
@@ -65,13 +79,13 @@ select {
     text-transform: capitalize;
     color: $form-label-color;
     letter-spacing: 1px;
-    font-weight: $weight-bold;
+    font-weight: $font-weight-bold;
     display: block;
     sub {
-      font-weight: $weight-regular;
+      font-weight: $font-weight-regular;
     }
   }
-  .field-has-value {
+  &__has-value {
     font-size: 0.85rem;
     top: 0%;
     // color: $primary-1-color;
@@ -82,16 +96,15 @@ select {
     margin: 0.5rem 0 0.5rem;
     width: 100%;
     border-radius: 3px;
-    min-height: $form-min_height - 10px;
+    min-height: $form-min-height - 10px;
     position: relative;
     z-index: 12;
     color: $form-label-color;
-
-    &[type="email"] {
+    &[type='email'] {
       text-transform: lowercase !important;
     }
     &:focus + label {
-      @extend .field-has-value;
+      @extend .form-field__has-value;
     }
     &:focus,
     &:active {
@@ -99,12 +112,11 @@ select {
       border-bottom-width: 2px;
     }
   }
-  .form-field-info {
+  &__info {
     position: absolute;
     right: 0;
     bottom: -9px;
   }
-
   @include respond-to($medium-up) {
     label {
       margin-bottom: 5px;
@@ -118,35 +130,35 @@ select {
         // color: $primary-1-color;
       }
     }
-    .form-field-info {
+    &__info {
       bottom: -2px;
     }
   }
 }
 
-//2 are more fields group together
+// 2 are more fields group together
 .group-fields {
   display: flex;
   .form-field {
     flex-grow: 1;
   }
 }
-//form fields type 2 container
 
-//custom radio buttons & checkbox
+// form fields type 2 container
+// custom radio buttons & checkbox
 
 /* stylelint-disable */
 // Stylelint is disabled due to the no-descending-specifity error
 // Which will always be there even when the position of class declaration
 // is changed.
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   position: relative;
   margin: 0;
   margin-right: 1rem;
   width: auto;
   &::before {
-    content: "";
+    content: '';
     height: 14px;
     width: 14px;
     position: absolute;
@@ -162,7 +174,7 @@ input[type="radio"] {
   &.checked {
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       background: $success-color;
       height: 4px;
       width: 4px;
@@ -190,11 +202,11 @@ input[type="radio"] {
 //option block used of the radio/checked to highlight the whole parent
 .option-block {
   padding: 0.5rem;
-  background: $gray-400;
+  background: mat-gray(400);
   height: 100%;
   &:hover,
   &.selected {
-    background: $gray-500;
+    background: mat-gray(500);
   }
   .radio,
   .checkbox {
@@ -203,13 +215,13 @@ input[type="radio"] {
 }
 
 /************************
-  #ERROR FIELDS
+  # FIELDS FOR VALIDATIONS
 ************************/
-/* stylelint-disable */
+/** stylelint-disable */
 // Stylelint is disabled due to the no-descending-specifity error
 // Which will always be there even when the position of class declaration
 // is changed.
-.error-field {
+.validation-field {
   position: relative;
   input,
   select,
@@ -229,7 +241,7 @@ input[type="radio"] {
     display: inline-block;
     right: 7px;
     top: 57px;
-    font-size: 12px;
+    font-size: rem(12px);
     background: $danger-color;
     padding: 1px 5px;
     position: absolute;
@@ -246,15 +258,15 @@ input[type="radio"] {
         left: 4px;
         top: 100%;
         border-top-color: $danger-color;
-      }      
+      }
     }
   }
 }
 /* stylelint-enable */
 .form-option-field.error-field {
   color: $danger-color;
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     &::before {
       border-color: $danger-color;
     }
@@ -264,10 +276,8 @@ input[type="radio"] {
     display: block;
   }
 }
-
-.correct-field {
+.validated-field {
   color: $success-color;
-
   input,
   select,
   textarea {
@@ -279,8 +289,8 @@ input[type="radio"] {
       border-color: $success-color;
     }
   }
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     &::before {
       border-color: $success-color;
     }
@@ -305,14 +315,14 @@ input[type="radio"] {
     margin-bottom: 0;
     cursor: pointer;
     top: 0;
-    input[type="checkbox"],
-    input[type="radio"] {
+    input[type='checkbox'],
+    input[type='radio'] {
       position: absolute;
       margin-top: 4px\9;
       margin-left: -25px;
       top: 4px;
     }
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       top: 9px;
     }
   }
@@ -328,35 +338,33 @@ input:invalid {
     border-bottom-color: $danger-color;
   }
 }
+
 /* stylelint-enable */
-input[type="checkbox"].filter-check,
-input[type="radio"].filter-radio {
+input[type='checkbox'].filter,
+input[type='radio'].filter {
   // height: 16px;
   // width: 16px;
   margin: 0;
-  margin-right: 15px;
-
+  margin-right: $margin-base;
   &::before,
   &::after {
-    height: 16px;
-    width: 16px;
-    box-shadow:
-      inset 0 2px 3px 0 rgba(0, 0, 0, 0.3),
-      0 1px 0 3px rgba(255, 255, 255, 0.8);
-    background: $gray-200;
+    // height: 16px;
+    // width: 16px;
+    box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 0 3px rgba(255, 255, 255, 0.8);
+    background: $default-light-gray;
     border: none;
   }
   &:checked {
     &::after {
-      content: "\2713";
-      width: 12px;
-      height: 16px;
-      background: $gray-600;
+      content: '\2713';
+      width: 15px;
+      height: 15px;
+      background: $default-dark-gray;
       color: $success-color;
       top: 0;
       left: 0;
-      padding-left: 4px;
-      font-size: 10px;
+      padding-left: 3px;
+      font-size: rem(10px);
       font-weight: 900;
     }
   }

@@ -1,0 +1,95 @@
+//
+// RESPONSIVE SETTINGS
+//
+// Following The Standard of Bootstrap 4.x Breakpoints
+// https://medium.com/@uiuxlab/the-most-used-responsive-breakpoints-in-2017-of-mine-9588e9bd3a8a
+
+// xs-device: 0 - 575px
+$sm: (
+  min: 576px,
+);
+// sm-device: 576px - 768px: Mobile
+$md: (
+  min: 769px,
+);
+// md-device: // 769px - 991px: Tablet
+$lg: (
+  min: 992px,
+);
+// lg-device // 992px - 1119px: Desktop
+$xl: (
+  min: 1200px,
+);
+// xl-device // 1200px - ∞;
+
+$small-up: (
+  min: map-get($sm, min),
+);
+$small-down: (
+  max: map-get($sm, min) - 1,
+);
+$small-only: (
+  min: map-get($sm, min),
+  max: map-get($md, min) - 1,
+);
+
+$medium-up: (
+  min: map-get($md, min),
+);
+$medium-down: (
+  max: map-get($md, min) - 1,
+);
+$medium-only: (
+  min: map-get($md, min),
+  max: map-get($lg, min) - 1,
+);
+
+$large-down: (
+  max: map-get($lg, min) - 1,
+);
+$large-up: (
+  min: map-get($lg, min),
+);
+$large-only: (
+  min: map-get($lg, min),
+  max: map-get($xl, min) - 1,
+);
+
+$xlarge-down: (
+  max: map-get($xl, min) - 1,
+);
+$xlarge-up: (
+  min: map-get($xl, min),
+);
+// Don't need xlarge only because no max for xlarge
+
+// Responsive breakpoint mixin
+@mixin respond-to($map) {
+  $query: '';
+
+  @if map-has-key($map, min) {
+    $query: append(
+      $query,
+      (
+        min-width: #{map-get($map, min)},
+      )
+    );
+  }
+
+  @if map-has-key($map, min) and map-has-key($map, max) {
+    $query: append($query, and);
+  }
+
+  @if map-has-key($map, max) {
+    $query: append(
+      $query,
+      (
+        max-width: #{map-get($map, max)},
+      )
+    );
+  }
+
+  @media screen and #{$query} {
+    @content;
+  }
+}

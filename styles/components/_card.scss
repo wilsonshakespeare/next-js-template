@@ -40,7 +40,7 @@
 
   &--with-border {
     border: $default-border-settings;
-    border-radius: $base-large-radius;
+    border-radius: $border-radius-large;
   }
 
   &--with-tb-border {
@@ -56,8 +56,8 @@
     margin: 0;
     &.sub {
       font-size: 80%;
-      color: $gray-600;
-      font-weight: $weight-regular;
+      color: mat-gray(600);
+      font-weight: $font-weight-regular;
     }
   }
 
@@ -68,7 +68,7 @@
 
   @include respond-to($large-up) {
     border: $default-border-settings;
-    border-radius: $base-large-radius;
+    border-radius: $border-radius-large;
     &__header,
     &__body,
     &__footer {
@@ -82,25 +82,9 @@
   }
 }
 
-.card-2 {
-  border-top: $default-border-settings;
-  p:last-of-type,
-  p:last-child {
-    margin-bottom: 0;
-  }
-
-  @include respond-to($large-up) {
-    padding: 15px 15px;
-    border-top: none;
-    &__body {
-      border-bottom: $default-border-settings;
-    }
-  }
-}
-
 .card-divider {
   padding: 15px;
-  background-color: $gray-600;
+  background-color: mat-gray(600);
   margin: 0;
 
   @include respond-to($large-up) {

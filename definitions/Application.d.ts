@@ -12,6 +12,8 @@ import { Reducer, CombinedState } from 'redux';
 import { ProjectState, ProjectReducers } from './ProjectApplication.d';
 import { Config } from '@store/modules/typings';
 
+export { ProjectState, ProjectReducers } from './ProjectApplication.d';
+
 export interface ApplicationState extends BaseApplicationState, ProjectState {}
 
 export interface ApplicationReducers extends BaseApplicationReducers, ProjectReducers {}

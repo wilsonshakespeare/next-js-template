@@ -2,11 +2,12 @@ import React, { Fragment } from 'react';
 import { Config } from '@definitions/index.d';
 import BaseRenderStrategy from '@core/page/RendererStrategyBase';
 import RenderComposite from '@core/page/RenderComposite';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 function JsxStyles({ config }: { config: Config }) {
   const { theme } = config;
   return (
+    // @ts-ignore style jsx cause linting error
     <style jsx global>{`
       ::selection {
         color: ${theme.primaryColorText};

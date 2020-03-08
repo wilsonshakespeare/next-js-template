@@ -3,6 +3,13 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
+    "paths": {
+      "@core/*": ["core/*"],
+      "@constants/*": ["constants/*"],
+      "@definitions/*": ["definitions/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"]
+    },
     "allowJs": true,
     "strict": true,
     "jsx": "react",

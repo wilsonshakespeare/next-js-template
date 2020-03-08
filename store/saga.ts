@@ -1,4 +1,8 @@
-import { all, fork } from 'redux-saga/effects';
+import {
+  all,
+  // @ts-ignore remove comment when being used for saga
+  fork,
+} from 'redux-saga/effects';
 
 // import sampleSaga from './modules/omdb/saga';
 

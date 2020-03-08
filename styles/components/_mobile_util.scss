@@ -1,12 +1,8 @@
-$shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-$small-fontsize: 10px;
-$base-system-lighter-grey: $blue-grey-50;
-$base-system-dark-grey: $blue-grey-900;
 .mob-dialog-menu {
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: $base-zaxis;
+  z-index: $max-z-index;
   left: 0;
   top: 0;
   &.set-seperate {
@@ -43,11 +39,9 @@ $base-system-dark-grey: $blue-grey-900;
 }
 .mob-dialog-title {
   padding: 10px 15px;
-  font-size: 16px;
-  font-weight: $bold;
-  background: $gq-green;
-  color: $white;
-  z-index: $base-zaxis + 1;
+  font-size: rem($font-size-normal);
+  font-weight: $font-weight-bold;
+  z-index: $max-z-index + 1;
   display: flex;
   justify-content: space-between;
   .back-button {
@@ -62,12 +56,12 @@ $base-system-dark-grey: $blue-grey-900;
   background: $white;
   box-shadow: rgba($black, 0.3) 0 0 5px;
   bottom: 0;
-  font-size: 16px;
+  font-size: rem($font-size-normal);
   max-height: 53px;
   padding: 5px;
   position: fixed;
   width: 100%;
-  z-index: $base-zaxis + 1;
+  z-index: $max-z-index + 1;
   .button {
     margin-left: 5px;
     margin-right: 5px;
@@ -77,6 +71,7 @@ $base-system-dark-grey: $blue-grey-900;
     display: none;
   }
 }
+
 .show-on-desktop {
   display: none !important;
 
@@ -93,28 +88,24 @@ $base-system-dark-grey: $blue-grey-900;
 }
 
 .mob-sticky-menu {
+  @extend %wide;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   cursor: pointer;
-  background: $gq-green;
-  box-shadow: $shadow;
+  box-shadow: $box-shadow;
   bottom: 0;
-  font-size: $small-fontsize;
+  font-size: rem($font-size-smaller);
   max-height: 46px;
   position: fixed;
-
-  @include full-width;
-
-  z-index: $base-zaxis + 1;
+  z-index: $max-z-index + 1;
   text-align: center;
 
   .menu {
-    color: $white;
+    @extend %wide;
     padding: 15px;
     text-align: center;
-
-    @include full-width;
   }
   & .two {
     width: 50%;

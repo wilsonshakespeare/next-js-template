@@ -1,10 +1,9 @@
-$base-system-light-grey: $blue-grey-300;
 .nav {
   //make the sort div full-one-page
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: $base-zaxis + 10;
+  z-index: $max-z-index + 10;
   left: 0;
   top: 0;
   overflow: scroll;
@@ -22,20 +21,15 @@ $base-system-light-grey: $blue-grey-300;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: $small-space;
+    margin-top: $space-small;
   }
 
   &__item {
     width: 80%;
-    margin: $small-space;
-    padding: $regular-space;
-    border: $default-border-style;
-    box-shadow: $shadow;
-  }
-
-  &--selected {
-    background-color: lighten($gq-green, 50%);
-    color: $gq-green;
+    margin: $space-small;
+    padding: $space-regular;
+    border: $border-style;
+    box-shadow: $box-shadow;
   }
 
   @include respond-to($large-up) {
@@ -51,7 +45,7 @@ $base-system-light-grey: $blue-grey-300;
 
     display: flex;
     flex-direction: row;
-    background-color: $base-system-lighter-grey;
+    background-color: $default-light-gray;
 
     &__close-container {
       display: none;
@@ -94,7 +88,6 @@ $base-system-light-grey: $blue-grey-300;
 
     &--selected {
       background-color: unset;
-      border-bottom: $gq-green 3px $border-style;
     }
   }
 }

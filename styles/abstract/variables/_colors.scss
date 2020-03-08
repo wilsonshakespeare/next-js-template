@@ -1,0 +1,36 @@
+// Colors
+// Color function - https://github.com/razorltd/sasscolourfunctioncalculator
+
+// Defaults colors
+// Use color names to set default colours
+$default-red: $persimmon !default;
+$default-green: $apple !default;
+$default-blue: $waikawa-gray !default;
+$default-yellow: $fuel-yellow !default;
+$default-orange: $texas-rose !default;
+$default-indigo: $blue-bell !default;
+$default-light-gray: mat-blue-gray(50) !default;
+$default-dark-gray: mat-blue-gray(900) !default;
+
+// States Colors
+$danger-color: #eb5757 !default;
+$success-color: #27ae60 !default; //green colors
+$info-color: #2f80ed !default;
+$warning-color: #f2994a !default;
+
+//rating colors
+$rate-excellent: #27ae60 !default;
+$rate-very-good: #4aae27 !default;
+$rate-good: #a2c569 !default;
+$rate-fair: #f2c94c !default;
+$rate-poor: #8b97a8 !default;
+
+//Border Shadow
+$border-color: mat-blue-gray(200);
+$shadow-color: rgba(0, 0, 0, 0.2) !default;
+
+// Input placeholder
+$input-placeholder-color: $gray !default;
+
+// Image placeholder
+$img-placeholder-color: $gray !default;

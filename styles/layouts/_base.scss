@@ -1,0 +1,34 @@
+html {
+  font-size: $base-font-size + $font-size-offset;
+  @include respond-to($medium-up) {
+    font-size: $base-font-tablet + $font-size-offset;
+  }
+  @include respond-to($large-up) {
+    font-size: $base-font-desktop + $font-size-offset;
+  }
+}
+
+body {
+  font-family: $main-fonts;
+  color: $font-color-main;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  padding: 0 15px;
+
+  &--no-padding {
+    padding: 0;
+  }
+}
+
+.page-wrapper {
+  max-width: $max-width-container;
+  margin: 0 auto;
+  padding: $layout-padding;
+  width: 100%;
+  position: relative;
+}

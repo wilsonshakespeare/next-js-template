@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseRenderStrategy from '@core/page/RendererStrategyBase';
 import RenderComposite from '@core/page/RenderComposite';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 export default class PageRenderer extends BaseRenderStrategy<React.ReactNode> {
   public static getInstance(): PageRenderer {
@@ -23,7 +23,11 @@ export default class PageRenderer extends BaseRenderStrategy<React.ReactNode> {
     // @ts-ignore template reason
     children: Array<RenderComposite<any>>
   ): React.ReactNode {
-    return <React.Fragment key={key}>{renderProps}</React.Fragment>;
+    return (
+      <div key={key} className="container">
+        {renderProps}
+      </div>
+    );
   }
 
   // Meaning if the condition of the Rendering is Met it will render

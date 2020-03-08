@@ -1,0 +1,215 @@
+// Refer: https://www.materialpalette.com/colors
+// Note: this is lighten and darken calculation, is a bit off from 2014 material palette
+// Colors for 500 as base color for calculation
+$baseColors: (
+  'red': #f44336,
+  'pink': #e91e63,
+  'purple': #9c27b0,
+  'deep-purple': #673ab7,
+  'indigo': #3f51b5,
+  'blue': #2196f3,
+  'light-blue': #03a9f4,
+  'cyan': #00bcd4,
+  'teal': #009688,
+  'green': #4caf50,
+  'light-green': #8bc34a,
+  'lime': #cddc39,
+  'yellow': #ffeb3b,
+  'amber': #ffc107,
+  'orange': #ff9800,
+  'deep-orange': #ff5722,
+  'brown': #795548,
+  'gray': #9e9e9e,
+  'blue-gray': #607d8b,
+);
+
+// Returns Color Map base on Base Color
+@function colorMap($baseColors, $variations) {
+  $colors: ();
+
+  @each $color, $value in $baseColors {
+    $maxVar: 36;
+    $mid: $variations / 2;
+    $dist: $mid - 1;
+    $step: $maxVar / $dist;
+
+    // lighten and darken
+    @for $i from 1 through $dist {
+      $percent: $maxVar - ($step * ($i - 1));
+      $darken: ($variations - $i) * 100;
+      $lighten: $i * 100;
+
+      $colors: map-merge(
+        $colors,
+        (
+          '#{$color}-#{$lighten}': lighten($value, $percent),
+          '#{$color}-#{$darken}': darken($value, $percent),
+        )
+      );
+    }
+
+    // middle eg 500
+    $colors: map-merge(
+      $colors,
+      (
+        '#{$color}-50': lighten($value, 38.7),
+      )
+    );
+    $colors: map-merge(
+      $colors,
+      (
+        '#{$color}-#{$variations/2 * 100}': $value,
+      )
+    );
+  }
+  @return $colors;
+}
+
+/// Function to validate material colorMap value return colorName-500 as default
+/// Assuming base color is correct because calling locally
+/// @access private
+/// @param {Map} $baseColor - 'red', 'blue', 'gray' etc.
+/// @param {String} $value - 50, 100, 200, ... 900 standard material palette value
+/// @return _validate('red', 300) return material red-300 value
+
+$mat-color-map: colorMap($baseColors, 10);
+
+@function _validate($baseColor, $value) {
+  @if map-has-key($mat-color-map, '#{$baseColor}-#{$value}') {
+    @return map-get($mat-color-map, '#{$baseColor}-#{$value}');
+  }
+  @return map-get($mat-color-map, '#{$baseColor}-500');
+}
+
+/// Get material red
+/// @access public
+/// @return mat-red(300) will return material red-300 value
+@function mat-red($value) {
+  @return _validate('red', $value);
+}
+
+/// Get material pink
+/// @access public
+/// @return mat-pink(300) will return material pink-300 value
+@function mat-pink($value) {
+  @return _validate('pink', $value);
+}
+
+/// Get material purple
+/// @access public
+/// @return mat-purple(300) will return material purple-300 value
+@function mat-purple($value) {
+  @return _validate('purple', $value);
+}
+
+/// Get material deep-purple
+/// @access public
+/// @return mat-deep-purple(300) will return material deep-purple-300 value
+@function mat-deep-purple($value) {
+  @return _validate('deep-purple', $value);
+}
+
+/// Get material indigo
+/// @access public
+/// @return mat-indigo(300) will return material indigo-300 value
+@function mat-indigo($value) {
+  @return _validate('indigo', $value);
+}
+
+/// Get material blue
+/// @access public
+/// @return mat-blue(300) will return material blue-300 value
+@function mat-blue($value) {
+  @return _validate('blue', $value);
+}
+
+/// Get material light-blue
+/// @access public
+/// @return mat-light-blue(300) will return material light-blue-300 value
+@function mat-light-blue($value) {
+  @return _validate('light-blue', $value);
+}
+
+/// Get material cyan
+/// @access public
+/// @return mat-cyan(300) will return material cyan-300 value
+@function mat-cyan($value) {
+  @return _validate('cyan', $value);
+}
+
+/// Get material teal
+/// @access public
+/// @return mat-teal(300) will return material teal-300 value
+@function mat-teal($value) {
+  @return _validate('teal', $value);
+}
+
+/// Get material green
+/// @access public
+/// @return mat-green(300) will return material green-300 value
+@function mat-green($value) {
+  @return _validate('green', $value);
+}
+
+/// Get material light-green
+/// @access public
+/// @return mat-light-green(300) will return material light-green-300 value
+@function mat-light-green($value) {
+  @return _validate('light-green', $value);
+}
+
+/// Get material lime
+/// @access public
+/// @return mat-lime(300) will return material lime-300 value
+@function mat-lime($value) {
+  @return _validate('lime', $value);
+}
+
+/// Get material yellow
+/// @access public
+/// @return mat-yellow(300) will return material yellow-300 value
+@function mat-yellow($value) {
+  @return _validate('yellow', $value);
+}
+
+/// Get material amber
+/// @access public
+/// @return mat-amber(300) will return material amber-300 value
+@function mat-amber($value) {
+  @return _validate('amber', $value);
+}
+
+/// Get material orange
+/// @access public
+/// @return mat-orange(300) will return material orange-300 value
+@function mat-orange($value) {
+  @return _validate('orange', $value);
+}
+
+/// Get material deep-orange
+/// @access public
+/// @return mat-deep-orange(300) will return material deep-orange-300 value
+@function mat-deep-orange($value) {
+  @return _validate('deep-orange', $value);
+}
+
+/// Get material brown
+/// @access public
+/// @return mat-brown(300) will return material brown-300 value
+@function mat-brown($value) {
+  @return _validate('brown', $value);
+}
+
+/// Get material gray
+/// @access public
+/// @return mat-gray(300) will return material gray-300 value
+@function mat-gray($value) {
+  @return _validate('gray', $value);
+}
+
+/// Get material blue-gray
+/// @access public
+/// @return mat-blue-gray(300) will return material blue-gray-300 value
+@function mat-blue-gray($value) {
+  @return _validate('blue-gray', $value);
+}

@@ -1,7 +1,5 @@
-$background-header: #485361;
 .header-nav {
   &__mobile {
-    background-color: $background-header;
     display: flex;
     padding: 14px 10px;
 
@@ -13,7 +11,7 @@ $background-header: #485361;
       width: 40px;
       line-height: 40px;
       text-align: center;
-      font-size: 24px;
+      font-size: rem(24px);
       color: $white;
       flex-basis: 40px;
 
@@ -23,7 +21,7 @@ $background-header: #485361;
         cursor: not-allowed;
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           height: 100%;
           width: 100%;
@@ -44,8 +42,8 @@ $background-header: #485361;
       }
 
       span {
-        font-size: 13px;
-        color: $gray-400;
+        font-size: rem(13px);
+        color: mat-gray(400);
       }
     }
   }
@@ -54,12 +52,7 @@ $background-header: #485361;
     position: relative;
     z-index: 100;
     padding: 15px 0;
-    background-color: $gray-200;
-
-    @include respond-to($medium-up) {
-      background-color: $background-header !important;
-      // height: 122px !important;
-    }
+    background-color: mat-gray(200);
 
     @include respond-to($large-up) {
       padding: 1rem 0 !important;
@@ -115,7 +108,7 @@ $background-header: #485361;
 
   &__progress {
     display: flex;
-    margin-bottom: $large-space;
+    margin-bottom: $space-large;
 
     @include respond-to($medium-up) {
       margin-bottom: unset;
@@ -131,7 +124,7 @@ $background-header: #485361;
     }
 
     &::after {
-      content: "";
+      content: '';
       z-index: 100;
       height: 100%;
       width: 100%;
@@ -177,7 +170,7 @@ $background-header: #485361;
   }
 
   &__title {
-    margin-bottom: $regular-space;
+    margin-bottom: $space-regular;
 
     @include respond-to($medium-up) {
       margin-bottom: 0;
@@ -192,8 +185,8 @@ $background-header: #485361;
     }
 
     &__sub {
-      font-size: 14px;
-      color: $gray-600;
+      font-size: rem(14px);
+      color: mat-gray(600);
     }
   }
 
@@ -224,7 +217,7 @@ $background-header: #485361;
   height: 100%;
   width: 100%;
   left: -100%;
-  background-color: $gray-200;
+  background-color: mat-gray(200);
   z-index: 999;
   visibility: hidden;
   opacity: 0;
@@ -258,10 +251,9 @@ $background-header: #485361;
     }
   }
   &__title {
-    background-color: $color-secondary;
     padding: 10px;
     color: #fff;
-    font-size: 16px;
+    font-size: rem(16px);
     text-transform: uppercase;
 
     @include respond-to($medium-up) {
@@ -273,7 +265,7 @@ $background-header: #485361;
     }
 
     i {
-      font-size: 22px;
+      font-size: rem(22px);
       margin-right: 10px;
       top: -2px;
       position: relative;
@@ -283,7 +275,7 @@ $background-header: #485361;
 }
 
 .panel-mobile__content {
-  padding: $large-space;
+  padding: $space-large;
 
   @include respond-to($medium-up) {
     // display: none;
@@ -298,21 +290,20 @@ $background-header: #485361;
 }
 
 .panel-mobile__content.container {
-  padding: $large-space;
+  padding: $space-large;
 
   @include respond-to($large-up) {
     padding: 0 15px;
   }
 }
 
-.button.button--close {
+.panel-mobile__button.button--close {
   margin: 42px auto 0;
   display: block;
   width: 100%;
   border-radius: 4px;
   background: none;
   border: none;
-  color: $color-primary;
   font-weight: 700;
 
   @include respond-to($medium-up) {

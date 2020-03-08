@@ -1,30 +1,20 @@
-/* ---Core--- */
-@import "./helpers/mixins";
-@import "./helpers/colors";
-@import "./base/config";
-@import "./helpers/functions";
-@import "./layouts/grid";
+/**
+ * Please follow the following style guide using 7-1 architecture
+ * https://sass-guidelin.es/#introduction
+ * Vendor is not being used because we do not intend to use any framework
+ */
 
-/* ---Base--- */
-// @import "base/_reset.scss";
-@import "./base/base";
+/* ---Core--- */
+@import './abstract/collective_variables';
+
+/* ---Base--- */ // @import "base/_reset.scss";
+@import './base/base';
 
 /* ---Components--- */
-@import "./components/alerts";
-@import "./components/radios";
-@import "./components/buttons";
-@import "./components/mobile-util";
-@import "./components/forms";
-@import "./components/card";
-@import "./components/nav-filter";
-@import "./components/pills";
-@import "./components/modal";
-@import "./components/progress-bar";
-@import "./components/reviews";
-@import "./components/price";
-@import "./components/texts";
-@import "./components/tooltip";
-@import "./components/panel-mobile";
+@import './components/components';
 
 /* ---Layout--- */
-@import "layouts/layout.scss";
+@import 'layouts/layouts';
+
+/* ---Theme--- */
+@import 'theme/theme';

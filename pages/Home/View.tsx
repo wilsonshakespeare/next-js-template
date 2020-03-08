@@ -12,10 +12,14 @@ function HomeView({ containerValues }: ViewProps) {
   };
   return (
     <BaseView {...baseProps}>
-      <div className="container">{`
-        Proving Page Container Hooks Concept
-        Work: Company Name is ${config.branding.companyName}
-      `}</div>
+      {`
+          Proving Page Container Hooks Concept
+          Work: Company Name is ${config.branding.companyName}
+        `}
+      <br />
+      <button className="button button--secondary button--with-border-radius">
+        <b>Test</b>
+      </button>
     </BaseView>
   );
 }

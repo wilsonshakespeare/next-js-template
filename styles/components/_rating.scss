@@ -1,4 +1,4 @@
-.trust-you {
+.rating {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -6,8 +6,8 @@
   &__bubble {
     position: relative;
     margin-right: 5px;
-    font-weight: $bold;
-    color: $success-green-300;
+    font-weight: $font-weight-bold;
+    color: mat-green(300);
 
     &__group {
       display: flex;
@@ -15,19 +15,19 @@
       align-items: center;
       width: 28px;
       height: 24px;
-      background: $success-green-300;
+      background: mat-green(300);
       -moz-border-radius: 3px;
       -webkit-border-radius: 3px;
       border-radius: 3px;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         margin-top: 14px;
         width: 0;
         height: 0;
-        border-top: 8px solid $success-green-300;
+        border-top: 8px solid mat-green(300);
         border-left: 8px solid transparent;
       }
 
@@ -37,20 +37,20 @@
         padding: 0;
         margin: 0;
         font-style: normal;
-        font-size: 11px;
+        font-size: rem(11px);
       }
     }
   }
 
   &__review-group {
     &__desc {
-      color: $success-green-300;
-      font-weight: $bold;
+      color: mat-green(300);
+      font-weight: $font-weight-bold;
     }
 
     &__count {
-      color: $base-system-light-grey;
-      font-weight: $regular;
+      color: mat-blue-gray(300);
+      font-weight: $font-weight-regular;
     }
   }
 
@@ -66,7 +66,7 @@
           border-left: 12px solid transparent;
         }
         &__number {
-          font-size: 13px;
+          font-size: rem(13px);
         }
       }
     }

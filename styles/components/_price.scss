@@ -6,23 +6,23 @@
     margin-right: 5px;
   }
   &__sub {
-    color: $gray-600;
+    color: mat-gray(600);
     font-size: 70%;
     display: block;
-    font-weight: $weight-regular;
+    font-weight: $font-weight-regular;
   }
 
   &--1 {
-    font-size: 18px;
+    font-size: rem(18px);
   }
   &--2 {
-    font-size: 16px;
+    font-size: rem(16px);
   }
   &--3 {
-    font-size: 14px;
+    font-size: rem(14px);
   }
   &--4 {
-    font-size: 12px;
+    font-size: rem(12px);
   }
 
   &--1 small,
@@ -37,19 +37,19 @@
 
   @include respond-to($large-up) {
     &--1 {
-      font-size: 27px;
+      font-size: rem(27px);
       .sub {
         font-size: 60%;
       }
     }
     &--2 {
-      font-size: 18px;
+      font-size: rem(18px);
     }
     &--3 {
-      font-size: 16px;
+      font-size: rem(16px);
     }
     &--4 {
-      font-size: 14px;
+      font-size: rem(14px);
     }
   }
 }
